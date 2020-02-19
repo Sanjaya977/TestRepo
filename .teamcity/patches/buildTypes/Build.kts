@@ -41,6 +41,7 @@ changeBuildType(RelativeId("Build")) {
             msBuild {
                 path = "TeamcityTest/TeamcityTest.sln"
                 toolsVersion = MSBuildStep.MSBuildToolsVersion.V15_0
+                platform = MSBuildStep.Platform.x64
                 targets = "Clean"
                 args = "Configuration=Debug"
                 param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
