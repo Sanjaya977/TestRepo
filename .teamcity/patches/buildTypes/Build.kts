@@ -47,6 +47,16 @@ changeBuildType(RelativeId("Build")) {
                 param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
             }
         }
-        items.removeAt(2)
+        insert(2) {
+            msBuild {
+                path = "TeamcityTest/TeamcityTest.sln"
+                toolsVersion = MSBuildStep.MSBuildToolsVersion.V15_0
+                platform = MSBuildStep.Platform.x64
+                args = "configuration=Debug"
+                param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
+            }
+        }
+        items.removeAt(3)
+        items.removeAt(3)
     }
 }
