@@ -1,7 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.v2018_1.*
-import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.VisualStudioStep
+import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.MSBuildStep
 import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.dotnetRestore
-import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.visualStudio
+import jetbrains.buildServer.configs.kotlin.v2018_1.buildSteps.msBuild
 import jetbrains.buildServer.configs.kotlin.v2018_1.triggers.vcs
 
 /*
@@ -48,22 +48,20 @@ object Build : BuildType({
         dotnetRestore {
             projects = "TeamcityTest/TeamcityTest.sln"
         }
-        visualStudio {
+        msBuild {
             path = "TeamcityTest/TeamcityTest.sln"
-            version = VisualStudioStep.VisualStudioVersion.vs2017
-            runPlatform = VisualStudioStep.Platform.x86
-            msBuildVersion = VisualStudioStep.MSBuildVersion.V15_0
-            msBuildToolsVersion = VisualStudioStep.MSBuildToolsVersion.V15_0
+            toolsVersion = MSBuildStep.MSBuildToolsVersion.V15_0
+            platform = MSBuildStep.Platform.x64
             targets = "Clean"
+            args = "Configuration=Debug"
+            param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
         }
-        visualStudio {
+        msBuild {
             path = "TeamcityTest/TeamcityTest.sln"
-            version = VisualStudioStep.VisualStudioVersion.vs2013
-            runPlatform = VisualStudioStep.Platform.x86
-            msBuildVersion = VisualStudioStep.MSBuildVersion.V12_0
-            msBuildToolsVersion = VisualStudioStep.MSBuildToolsVersion.V12_0
-            targets = "Build"
-            configuration = "Debug"
+            toolsVersion = MSBuildStep.MSBuildToolsVersion.V15_0
+            platform = MSBuildStep.Platform.x64
+            args = "configuration=Debug"
+            param("dotNetCoverage.dotCover.home.path", "%teamcity.tool.JetBrains.dotCover.CommandLineTools.DEFAULT%")
         }
     }
 
