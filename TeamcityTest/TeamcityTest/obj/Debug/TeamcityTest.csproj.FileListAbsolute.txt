@@ -1,0 +1,6 @@
+C:\Users\sanjaya\source\repos\TeamcityTest\TeamcityTest\bin\Debug\TeamcityTest.dll
+C:\Users\sanjaya\source\repos\TeamcityTest\TeamcityTest\bin\Debug\TeamcityTest.pdb
+C:\Users\sanjaya\source\repos\TeamcityTest\TeamcityTest\obj\Debug\TeamcityTest.csprojAssemblyReference.cache
+C:\Users\sanjaya\source\repos\TeamcityTest\TeamcityTest\obj\Debug\TeamcityTest.csproj.CoreCompileInputs.cache
+C:\Users\sanjaya\source\repos\TeamcityTest\TeamcityTest\obj\Debug\TeamcityTest.dll
+C:\Users\sanjaya\source\repos\TeamcityTest\TeamcityTest\obj\Debug\TeamcityTest.pdb
